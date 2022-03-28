@@ -6,9 +6,13 @@ import Header from './components/Header';
 import Home from './components/Home';
 
 function App() {
+  function onCloseHandler(event) {
+    console.log(`🍎 ~ file: App.js ~ line 11 ~ onCloseHandler ~ imsi`, event);
+  }
+    
   return (
     <div className="App">
-      {/* <Header/> */}
+      <Header onClick={onCloseHandler}/>
       <Home/>
     </div>
   );
