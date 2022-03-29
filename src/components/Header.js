@@ -39,6 +39,12 @@ function Header() {
                     <li key={index}><a href="https://tesla.com">{car}</a></li>
                 ))}
 
+                <li><a href="https://tesla.com">Existing Inventory</a></li>
+                <li><a href="https://tesla.com">Used Inventory</a></li>
+                <li><a href="https://tesla.com">Trade-in</a></li>
+                <li><a href="https://tesla.com">Cybertruck</a></li>
+                <li><a href="https://tesla.com">Roadaster</a></li>
+                
             </BuregerNav>
         </Container>
     )
