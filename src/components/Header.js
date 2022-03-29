@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 function Header() {
     const [isBurgerOpen, setBurgerOpen] = useState(false);
-    const cars = useSelector(selectCars);
+    const cars = useSelector(selectCars); // useSelector hoot usage using redux' slice object
     console.log(cars);
 
     function onCloseHandler(){
@@ -15,19 +15,15 @@ function Header() {
         setBurgerOpen(!isBurgerOpen);
     }
 
-
     return (
         <Container>
             <a href="https://tesla.com" target="_blank" rel="noreferrer">
             <img src="/images/logo.svg" alt=""/>
             </a>
             <Menu>
-                <a href="https://tesla.com">Model S</a>
-                <a href="https://tesla.com">Model 3</a>
-                <a href="https://tesla.com">Model X</a>
-                <a href="https://tesla.com">Model Y</a>
-                <a href="https://tesla.com">Solar Roof</a>
-                <a href="https://tesla.com">Solar Panels</a>
+                {cars && cars.map((car, index) => (
+                    <a key={index} href="https://tesla.com">{car}</a>
+                ))}
             </Menu>
             <RightMenu >
                 <a href="https://tesla.com">SHOP</a>
@@ -38,17 +34,11 @@ function Header() {
                 <CloseWrapper>
                     <CustomeClose onClick={onCloseHandler}/>
                 </CloseWrapper>
-                
-                <li><a href="https://tesla.com">Existing Inventory</a></li>
-                <li><a href="https://tesla.com">Used Inventory</a></li>
-                <li><a href="https://tesla.com">Trade-in</a></li>
-                <li><a href="https://tesla.com">Cybertruck</a></li>
-                <li><a href="https://tesla.com">Roadaster</a></li>
-                <li><a href="https://tesla.com">Existing Inventory</a></li>
-                <li><a href="https://tesla.com">Existing Inventory</a></li>
-                <li><a href="https://tesla.com">Existing Inventory</a></li>
-                <li><a href="https://tesla.com">Existing Inventory</a></li>
-                <li><a href="https://tesla.com">Existing Inventory</a></li>
+                {cars && cars.map((car, index) => (
+                    // <a key={index} href="https://tesla.com">{car}</a>
+                    <li key={index}><a href="https://tesla.com">{car}</a></li>
+                ))}
+
             </BuregerNav>
         </Container>
     )
@@ -117,7 +107,7 @@ const BuregerNav = styled.div`
     display: flex;
     flex-direction: column;
     text-align: left;
-    transform: ${props => props.show ? 'translateX(100%)' : 'translateX(0)'}; 
+    transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'}; 
     transition: transform 0.2s;
     li {
         padding: 15px 0;

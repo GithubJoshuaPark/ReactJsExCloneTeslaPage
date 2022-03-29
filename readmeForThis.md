@@ -61,9 +61,17 @@
 > Project 생성 시 --template redux (프로젝트 전역 상태관리) 포함시켰기에
 > index.js 에 redux store 객체를 <Provider store={store}> 하고있음
 > App Component 하부 Components에서 store props 변경 시,
-> Evalute 후 해당 Component는 Rerendering !! 되도록 구성됨.
+> Evalute 후 해당 Component는 (다시)Rerendering !! 되도록 구성됨.
 > Project 생성 시 만들어 진 features 아래 새로 폴더/(예: car)하나 만듬
 > car/carSlice.js 만듬
+> 요약하면, slice를 만들어, store에 저장함
+> createSlice 를 사용하면 좋은 점 (소스가 간결해지고 줄어듬)
+> 우선 (보통) 리덕스 모듈하나를 만들려면
+>
+> 1. action type을 정의하고,
+> 2. action creator를 만들고 redux-saga를 사용하는 경우 saga 만들고,
+> 3. reducer까지 만들어야 하는데 이 모든게(saga 빼고)
+>    createSlice 한 방에 가능하다.
 
 ```javascript
 import { createSlice } from "@reduxjs/toolkit";
@@ -84,9 +92,10 @@ export default carSlice.reducer;
 ```
 
 > store.js 수정
+
 ```javascript
-import { configureStore } from '@reduxjs/toolkit';
-import { carSlice } from '../features/car/carSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import { carSlice } from "../features/car/carSlice";
 
 export const store = configureStore({
   reducer: {
@@ -94,3 +103,5 @@ export const store = configureStore({
   },
 });
 ```
+
+---
