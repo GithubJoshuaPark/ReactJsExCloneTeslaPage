@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import { selectCars } from '../features/car/carSlice';
+import { useSelector } from 'react-redux';
 
 function Header() {
     const [isBurgerOpen, setBurgerOpen] = useState(false);
+    const cars = useSelector(selectCars);
+    console.log(cars);
 
     function onCloseHandler(){
         console.log(`🍎 ~ file: Header.js ~ line 9 ~ onCloseHandler ~ isBurgerOpen: `, isBurgerOpen);
         setBurgerOpen(!isBurgerOpen);
     }
+
 
     return (
         <Container>
