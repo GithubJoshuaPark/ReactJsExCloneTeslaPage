@@ -33,9 +33,8 @@
 
 ```
     $npm install styled-components
-
     $npm install @material-ui/core
-    $npm install @material-ui/icons  // material ui icon install (menu icon 하나쓰려고 ㅠㅠ)
+    $npm install @material-ui/icons  // material ui icon install 
 ```
 
 ---

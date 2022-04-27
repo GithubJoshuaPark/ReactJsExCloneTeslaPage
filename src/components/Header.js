@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
@@ -95,11 +95,9 @@ const RightMenu = styled.div`
         flex-wrap: nowrap;
     }
 `
-
 const CustomeMenu = styled(MenuIcon)`
     cursor: pointer;
 `
-
 const BuregerNav = styled.div`
     position: fixed;
     top: 0;
@@ -125,11 +123,11 @@ const BuregerNav = styled.div`
     }
 `
 
-const CustomeClose = styled(CloseIcon)`
-    cursor: pointer;
-`
-
 const CloseWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
+`
+
+const CustomeClose = styled(CloseIcon)`
+    cursor: pointer;
 `
