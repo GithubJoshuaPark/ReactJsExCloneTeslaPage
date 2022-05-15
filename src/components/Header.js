@@ -81,9 +81,7 @@ const Menu = styled.div`
     @media (max-width: 1040px) {
         display: none;
     }
-
 `
-
 const RightMenu = styled.div`
     display: flex;
     align-items: center;
